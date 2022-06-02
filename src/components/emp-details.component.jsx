@@ -37,6 +37,7 @@ const EmpDetails = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-end",
+            marginBottom: "24px",
         },
 
         formControl: {
@@ -56,7 +57,7 @@ const EmpDetails = () => {
         },
 
         lowerCards: {
-            margin: "2rem 0rem",
+            marginTop: "24px",
             width: "100%",
             borderRadius: 0,
         }
@@ -84,6 +85,11 @@ const EmpDetails = () => {
         setEmailValue(e.target.value);
     }
 
+    const setLocalUserData = () => {
+        const localUsersData = JSON.parse(localStorage.getItem("users") || "[]");
+        setUsers(localUsersData);
+    }
+
     const userAdded = () => {
         const user = {
             name: nameValue,
@@ -91,27 +97,27 @@ const EmpDetails = () => {
             email: emailValue,
         };
         users.push(user);
-
         localStorage.setItem("users", JSON.stringify(users));
 
         nameInput.current.value = "";
         mobileInput.current.value = "";
         emailInput.current.value = "";
 
+        setLocalUserData();
     }
 
     const userDelete = (value) => {
-        console.log(value, "value");
-        var ls_data = JSON.parse(localStorage.getItem("users"));
+        const ls_data = JSON.parse(localStorage.getItem("users"));
         ls_data.splice(value, 1);
         localStorage.setItem("users", JSON.stringify(ls_data));
-        console.log(ls_data);
+        setLocalUserData();
     }
 
     React.useEffect(() => {
-        const localUsersData = JSON.parse(localStorage.getItem("users") || "[]");
-        setUsers(localUsersData);
+        setLocalUserData();
     }, []);
+
+
 
     return (
         <React.Fragment>
