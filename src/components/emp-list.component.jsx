@@ -51,7 +51,9 @@ const EmpList = (props) => {
         const localStrgUserData = JSON.parse(localStorage.getItem("users"));
         localStrgUserData.splice(value, 1);
         localStorage.setItem("users", JSON.stringify(localStrgUserData));
-        localStorage.setItem("open", false);
+        if (localStrgUserData.length === 0) {
+            localStorage.setItem("open", false);
+        }
         setLocalUserData();
     }
 
