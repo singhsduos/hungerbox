@@ -57,7 +57,7 @@ const EmpList = (props) => {
 
     React.useEffect(() => {
         setLocalUserData();
-    }, []);
+    });
 
     return (
         <React.Fragment>
