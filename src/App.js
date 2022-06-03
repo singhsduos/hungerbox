@@ -1,13 +1,8 @@
-
-import EmployeeForm from "./components/employee-form";
-import EmpDetails from "./components/emp-details.component";
+import EmpForm from "./components/emp-form.component";
 
 function App() {
   return (
-    <div className="App">
-      {/*<EmployeeForm /> */}
-      <EmpDetails/>
-    </div>
+      <EmpForm/>
   );
 }
 
