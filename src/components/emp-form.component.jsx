@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 import EmpList from './emp-list.component';
+import "./emp-form.style.css";
 
 
 const EmpForm = () => {
